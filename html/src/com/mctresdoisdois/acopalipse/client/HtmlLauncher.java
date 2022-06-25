@@ -3,7 +3,7 @@ package com.mctresdoisdois.acopalipse.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.mctresdoisdois.acopalipse.MyGame;
+import com.mctresdoisdois.acopalipse.Acopalipse;
 
 public class HtmlLauncher extends GwtApplication {
 
@@ -17,6 +17,6 @@ public class HtmlLauncher extends GwtApplication {
 
         @Override
         public ApplicationListener createApplicationListener () {
-                return new MyGame();
+                return new Acopalipse();
         }
 }
