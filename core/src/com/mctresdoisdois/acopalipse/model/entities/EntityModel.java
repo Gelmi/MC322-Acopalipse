@@ -44,6 +44,11 @@ public abstract class EntityModel {
         return rotation;
     }
 	
+	public void setSize(float height, float width) {
+		this.height = height;
+		this.width = width;
+	}
+	
 	public void setPosition(float x, float y) {
         this.x = x;
         this.y = y;

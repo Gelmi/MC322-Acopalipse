@@ -39,4 +39,37 @@ public class TableModel extends EntityModel{
 		this.selectedSector = selectedSector;
 	}
 	
+	public void buy(ItemModel itemModel) {
+		int i = ((int)selectedSector.x) - 1;
+		int j = ((int)selectedSector.y) - 1;
+		itemModel.setPosition(64*(i+1), 64*(j+1));
+		itemModel.buy();
+		sectorModelMatrix.get(i).get(j).setMeteor(itemModel);
+	}
+	
+	public int getDustPerSecond() {
+		int dps = 0;
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				ItemModel sectorModelItem = sectorModelMatrix.get(i).get(j).getMeteor();
+				if(sectorModelItem != null) {
+					dps += sectorModelItem.getDustPerSecond();
+				}
+			}
+		}
+		return dps;
+	}
+	
+	public int getTotalPower() {
+		int totalPower = 0;
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				ItemModel sectorModelItem = sectorModelMatrix.get(i).get(j).getMeteor();
+				if(sectorModelItem != null) {
+					totalPower += sectorModelItem.getPower();
+				}
+			}
+		}
+		return totalPower;
+	}
 }

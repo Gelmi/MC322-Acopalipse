@@ -13,32 +13,14 @@ import com.mctresdoisdois.acopalipse.view.GameView;
 
 public class MainMenuScreen implements Screen {
 	final Acopalipse game;
-	private GlyphLayout layout;
 	OrthographicCamera camera;
-	final float fontX;
-	final float fontY;
-	private Texture dinossaurImage;
-	private Rectangle dinossaur;
-	
+
 	public MainMenuScreen(final Acopalipse game) {
 		this.game = game;
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 		
-		layout = new GlyphLayout(this.game.getFont(), "Acopalipse");
-		fontX = 800/2 - (layout.width/2);
-		fontY = 480/2 - (layout.height/2);	
-		this.game.getFont().getData().setScale(2, 2);
-		dinossaurImage = new Texture(Gdx.files.internal("Dinossauro.png"));
-		
-		dinossaur = new Rectangle();
-		dinossaur.x = 800 / 2 - 64 / 2; // center the bucket horizontally
-		dinossaur.y = 480/2 + (layout.height/2); // bottom left corner of the bucket is 20 pixels above
-						// the bottom screen edge
-		dinossaur.width = 64;
-		dinossaur.height = 64;
-
 	}
 	
 	@Override
@@ -48,6 +30,18 @@ public class MainMenuScreen implements Screen {
 		camera.update();
 		game.getBatch().setProjectionMatrix(camera.combined);
 
+		GlyphLayout layout = new GlyphLayout(this.game.getFont(), "Acopalipse");
+		float fontX = 800/2 - (layout.width/2);
+		float fontY = 480/2 - (layout.height/2);	
+		this.game.getFont().getData().setScale(2, 2);
+		
+		Texture dinossaurImage = new Texture(Gdx.files.internal("Dinossauro.png"));
+		Rectangle dinossaur = new Rectangle();
+		dinossaur.x = 800 / 2 - 64 / 2;
+		dinossaur.y = 480/2 + (layout.height/2);
+		dinossaur.width = 64;
+		dinossaur.height = 64;
+		
 		game.getBatch().begin();
 		
 		game.getFont().draw(game.getBatch(), layout, fontX, fontY);

@@ -11,6 +11,7 @@ public abstract class EntityView {
 	private Sprite sprite;
 	private GameView gameView;
 	
+	
 	public EntityView(Acopalipse game, GameView gameView) {
         sprite = createSprite(game);
         this.gameView = gameView;
