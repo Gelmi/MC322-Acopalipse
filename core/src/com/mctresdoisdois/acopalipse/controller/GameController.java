@@ -7,9 +7,15 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 public class GameController {
 
 	private final TableController tableController;
+	private GameModel gameModel;
 	
-	public GameController(GameModel model) {
-		tableController = new TableController(model.getTableModel());
+	public GameController(GameModel gameModel) {
+		tableController = new TableController(this);
+		this.gameModel = gameModel;
+	}
+	
+	public GameModel getGameModel() {
+		return gameModel;
 	}
 	
 	public void touch(Vector3 touchPos) {

@@ -1,5 +1,6 @@
 package com.mctresdoisdois.acopalipse.model.entities;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.mctresdoisdois.acopalipse.model.GameModel;
@@ -7,6 +8,7 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 public class TableModel extends EntityModel{
 	
 	private Array<Array<SectorModel>> sectorModelMatrix;
+	private Vector2 selectedSector;
 	
 	public TableModel(GameModel model, float x, float y, float height, float width, float rotation) {
 		super(model, x, y, height, width, rotation);
@@ -27,6 +29,14 @@ public class TableModel extends EntityModel{
 			
 	public void touch(Vector3 touchPos) {
 		
+	}
+
+	public Vector2 getSelectedSector() {
+		return selectedSector;
+	}
+
+	public void setSelectedSector(Vector2 selectedSector) {
+		this.selectedSector = selectedSector;
 	}
 	
 }
