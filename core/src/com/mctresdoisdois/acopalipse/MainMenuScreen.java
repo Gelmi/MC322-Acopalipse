@@ -26,10 +26,10 @@ public class MainMenuScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 		
-		layout = new GlyphLayout(this.game.font, "Acopalipse");
+		layout = new GlyphLayout(this.game.getFont(), "Acopalipse");
 		fontX = 800/2 - (layout.width/2);
 		fontY = 480/2 - (layout.height/2);	
-		this.game.font.getData().setScale(2, 2);
+		this.game.getFont().getData().setScale(2, 2);
 		dinossaurImage = new Texture(Gdx.files.internal("Dinossauro.png"));
 		
 		dinossaur = new Rectangle();
@@ -46,14 +46,14 @@ public class MainMenuScreen implements Screen {
 		ScreenUtils.clear(0, 0, 0.2f, 1);
 
 		camera.update();
-		game.batch.setProjectionMatrix(camera.combined);
+		game.getBatch().setProjectionMatrix(camera.combined);
 
-		game.batch.begin();
+		game.getBatch().begin();
 		
-		game.font.draw(game.batch, layout, fontX, fontY);
-		game.batch.draw(dinossaurImage, dinossaur.x, dinossaur.y, dinossaur.width, dinossaur.height);
+		game.getFont().draw(game.getBatch(), layout, fontX, fontY);
+		game.getBatch().draw(dinossaurImage, dinossaur.x, dinossaur.y, dinossaur.width, dinossaur.height);
 		
-		game.batch.end();
+		game.getBatch().end();
 			
 		if (Gdx.input.isTouched()) {
 			
