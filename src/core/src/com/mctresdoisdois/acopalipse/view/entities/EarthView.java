@@ -58,4 +58,8 @@ public class EarthView extends EntityView {
 		font.draw(batch, "HP: "+String.valueOf(earthModel.getLife()), earthModel.getX()+21, earthModel.getY()+40);
 		batch.draw(earthSprite, earthModel.getX(), earthModel.getY()+64, earthModel.getHeight(), earthModel.getWidth()-64);
 	}
+	
+	public void dispose() {
+		font.dispose();		
+	}
 }

@@ -1,5 +1,6 @@
 package com.mctresdoisdois.acopalipse.model.entities;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.mctresdoisdois.acopalipse.model.GameModel;
@@ -7,9 +8,9 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 public abstract class ItemModel extends EntityModel{
 
 	private EntityModel entityModel;
-	private int dustPerSecond;
-	private int price;
-	private int power;
+	protected int dustPerSecond;
+	protected int price;
+	protected int power;
 	private String itemName; 
 	private Boolean buy;
 	
@@ -64,4 +65,6 @@ public abstract class ItemModel extends EntityModel{
 	public void buyDPSUpgrade(int dpsUpgrade) {
 		dustPerSecond*=dpsUpgrade;
 	}
+
+	public abstract Sprite getSprite();
 }

@@ -40,12 +40,16 @@ public class InfoView extends EntityView{
 		}
 		batch.draw(getSprite(), infoModel.getX(), infoModel.getY(), infoModel.getHeight(), infoModel.getWidth());
 		if(itemModel != null) {
-			batch.draw(itemModel.createSprite(), infoModel.getX(), infoModel.getY(), 64, 64);
+			batch.draw(itemModel.getSprite(), infoModel.getX(), infoModel.getY(), 64, 64);
 			font.draw(batch, itemModel.getName(), infoModel.getX()+74, infoModel.getY()+54);
 			font.draw(batch, "Poder: "+itemModel.getPower(), infoModel.getX()+74, infoModel.getY()+40);
-			font.draw(batch, "Atração: "+itemModel.getDustPerSecond(), infoModel.getX()+74, infoModel.getY()+26);
+			font.draw(batch, "Atracao: "+itemModel.getDustPerSecond(), infoModel.getX()+74, infoModel.getY()+26);
 		} else {
 			font.draw(batch, "Selecione um meteoro", infoModel.getX()+10, infoModel.getY()+30);
 		}
+	}
+	
+	public void dispose() {
+		font.dispose();		
 	}
 }

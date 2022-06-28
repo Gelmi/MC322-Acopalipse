@@ -14,18 +14,30 @@ import com.mctresdoisdois.acopalipse.view.MyInputProcessor;
 public class MainMenuScreen implements Screen {
 	private final Acopalipse game;
 	private OrthographicCamera camera;
-
+	private Texture bookImage;
+	private Texture dinossaurImage;
+	private Rectangle dinossaur;
+	private MyInputProcessor inputProcessor;
+	
 	public MainMenuScreen(final Acopalipse game) {
 		this.game = game;
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
+		bookImage = new Texture(Gdx.files.internal("Livro.png"));
+		dinossaurImage = new Texture(Gdx.files.internal("Dinossauro.png"));
+		this.game.getFont().getData().setScale(2, 2);
 		
+		dinossaur = new Rectangle();
+		dinossaur.x = 800 / 2 - 64 / 2;
+		dinossaur.y = 480/2 + 10;
+		dinossaur.width = 64;
+		dinossaur.height = 64;
+		inputProcessor = new MyInputProcessor(new MainMenuController(game, new GameModel()));
 	}
 	
 	@Override
 	public void render(float delta) {
-		MyInputProcessor inputProcessor = new MyInputProcessor(new MainMenuController(game, new GameModel()));
 		Gdx.input.setInputProcessor(inputProcessor);
 		
 		ScreenUtils.clear(0, 0, 0.2f, 1);
@@ -36,16 +48,6 @@ public class MainMenuScreen implements Screen {
 		GlyphLayout layout = new GlyphLayout(this.game.getFont(), "Acopalipse");
 		float fontX = 800/2 - (layout.width/2);
 		float fontY = 480/2 - (layout.height/2);	
-		this.game.getFont().getData().setScale(2, 2);
-		
-		Texture dinossaurImage = new Texture(Gdx.files.internal("Dinossauro.png"));
-		Rectangle dinossaur = new Rectangle();
-		dinossaur.x = 800 / 2 - 64 / 2;
-		dinossaur.y = 480/2 + (layout.height/2);
-		dinossaur.width = 64;
-		dinossaur.height = 64;
-		
-		Texture bookImage = new Texture(Gdx.files.internal("Livro.png"));
 		
 		game.getBatch().begin();
 		
@@ -55,6 +57,7 @@ public class MainMenuScreen implements Screen {
 		
 		game.getBatch().end();
 			
+		
 		/*if (Gdx.input.isTouched()) {
 			System.out.println(Gdx.input.getX()+" "+Gdx.input.getY());
 			if(Gdx.input.getX() < 64 && Gdx.input.getY() > 416) {

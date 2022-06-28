@@ -9,10 +9,13 @@ import com.mctresdoisdois.acopalipse.model.entities.ItemModel;
 
 public class MeteorModel extends ItemModel {
 
+	Sprite sprite;
+	
 	public MeteorModel(GameModel model, EntityModel entityModel, float x, float y, float height, float width,
 			float rotation) {
-		super(model, entityModel, x, y, height, width, rotation, 10, 50, 5, "Meteoro");
+		super(model, entityModel, x, y, height, width, rotation, 50, 50, 5, "Meteoro");
 		// TODO Auto-generated constructor stub
+		sprite = createSprite();
 	}
 
 	@Override
@@ -21,5 +24,10 @@ public class MeteorModel extends ItemModel {
 		Sprite sprite = new Sprite(idleTexture);
 		return sprite;
 	}
+	
+	public Sprite getSprite() {
+		return sprite;
+	}
+
 	
 }

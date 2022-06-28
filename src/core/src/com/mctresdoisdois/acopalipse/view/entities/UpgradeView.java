@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.mctresdoisdois.acopalipse.Acopalipse;
 import com.mctresdoisdois.acopalipse.model.entities.ItemModel;
 import com.mctresdoisdois.acopalipse.model.entities.UpgradeModel;
+import com.mctresdoisdois.acopalipse.model.entities.meteors.GasMeteorModel;
 import com.mctresdoisdois.acopalipse.view.GameView;
 
 public class UpgradeView extends EntityView {
@@ -56,14 +57,26 @@ public class UpgradeView extends EntityView {
 			Vector2 dpsUpgrade = itemModel.getDPSUpgradeVector();
 			batch.draw(getSprite(), upgradeModel.getX(), upgradeModel.getY(), 128, 64);
 			font.draw(batch, "Upgrade de Poder", upgradeModel.getX()+7, upgradeModel.getY()+60);
-			font.draw(batch, "Bonus: +"+String.valueOf(powerUpgrade.x), upgradeModel.getX()+7, upgradeModel.getY()+40);
+			if(itemModel instanceof GasMeteorModel) {
+				font.draw(batch, "Bonus: x"+String.valueOf(powerUpgrade.x), upgradeModel.getX()+7, upgradeModel.getY()+40);
+			} else {
+				font.draw(batch, "Bonus: +"+String.valueOf(powerUpgrade.x), upgradeModel.getX()+7, upgradeModel.getY()+40);
+			}
 			font.draw(batch, "Custo: "+String.valueOf(powerUpgrade.y), upgradeModel.getX()+7, upgradeModel.getY()+20);
 			batch.draw(blackSprite, upgradeModel.getX()+128, upgradeModel.getY(), 128, 64);
 			font.draw(batch, "Upgrade de DPS", upgradeModel.getX()+135, upgradeModel.getY()+60);
-			font.draw(batch, "Bonus: x"+String.valueOf(dpsUpgrade.x), upgradeModel.getX()+135, upgradeModel.getY()+40);
+			if(itemModel instanceof GasMeteorModel) {
+				font.draw(batch, "Bonus: +"+String.valueOf(dpsUpgrade.x), upgradeModel.getX()+135, upgradeModel.getY()+40);
+			} else {
+				font.draw(batch, "Bonus: x"+String.valueOf(dpsUpgrade.x), upgradeModel.getX()+135, upgradeModel.getY()+40);
+			}
 			font.draw(batch, "Custo: "+String.valueOf(dpsUpgrade.y), upgradeModel.getX()+135, upgradeModel.getY()+20);
 		} else {
 			font.draw(batch, "Selecione um meteoro", upgradeModel.getX()+10, upgradeModel.getY()+30);
 		}
+	}
+	
+	public void dispose() {
+		font.dispose();		
 	}
 }

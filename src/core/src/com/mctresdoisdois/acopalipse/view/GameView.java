@@ -27,6 +27,7 @@ public class GameView extends ScreenAdapter {
 	private final InfoView info;
 	private final UpgradeView upgrade;
 	private Texture arrowImage;
+	private MyInputProcessor inputProcessor;
 	
 	public GameView(final Acopalipse game, GameModel model, GameController controller) {
 		this.game = game;
@@ -43,6 +44,8 @@ public class GameView extends ScreenAdapter {
 		camera = createCamera();
 		
 		arrowImage = new Texture(Gdx.files.internal("backArrow.png"));
+		
+		inputProcessor = new MyInputProcessor(controller);
 	}
 
 	private OrthographicCamera createCamera() {
@@ -55,8 +58,6 @@ public class GameView extends ScreenAdapter {
 	@Override
 	public void render(float delta) {
 		//handleInputs();
-		
-		MyInputProcessor inputProcessor = new MyInputProcessor(controller);
 		Gdx.input.setInputProcessor(inputProcessor);
 		
 		ScreenUtils.clear(0, 0, 0.2f, 1);
