@@ -19,9 +19,11 @@ public class StoreController extends EntityController {
 				int i = (int) Math.floor(touchPos.y/(storeModel.getWidth()/4))-1;
 				int price = getGameController().getGameModel().getStoreModel().getItemModelArray().get(i).getPrice();
 				if(getGameController().getGameModel().getDust() >= price) {
-					getGameController().getGameModel().subDust(price);
-					getGameController().getTableContoller().buy(getGameController().getGameModel().getStoreModel().getItemModelArray().get(i));
-					getGameController().getGameModel().getStoreModel().createItem(i, getGameController().getGameModel().getStoreModel().getItemModelArray().get(i));
+					if(getGameController().getGameModel().getTableModel().getSelectedSectorModel().getMeteor() == null) {
+						getGameController().getGameModel().subDust(price);
+						getGameController().getTableContoller().buy(getGameController().getGameModel().getStoreModel().getItemModelArray().get(i));
+						getGameController().getGameModel().getStoreModel().createItem(i, getGameController().getGameModel().getStoreModel().getItemModelArray().get(i));
+					}
 				}
 			}
 		}

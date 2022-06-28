@@ -66,9 +66,11 @@ public class TableView extends EntityView{
 						sectorViewMatrix.get(i).get(j).setMeteorView(new GasMeteorView(this.getGameView().getGame(), this));
 					} else if(sectorModel.getMeteor() instanceof IceMeteorModel) {
 						sectorViewMatrix.get(i).get(j).setMeteorView(new IceMeteorView(this.getGameView().getGame(), this));
-					}  else if(sectorModel.getMeteor() instanceof PleagueMeteorModel) {
-						sectorViewMatrix.get(i).get(j).setMeteorView(new PleagueMeteorView(this.getGameView().getGame(), this));
+					}  else if(sectorModel.getMeteor() instanceof FireMeteorModel) {
+						sectorViewMatrix.get(i).get(j).setMeteorView(new FireMeteorView(this.getGameView().getGame(), this));
 					}
+				} else {
+					sectorViewMatrix.get(i).get(j).setMeteorView(null);
 				}
 			}
 		}

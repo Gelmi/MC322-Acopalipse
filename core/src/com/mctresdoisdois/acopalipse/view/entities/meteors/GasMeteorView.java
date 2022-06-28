@@ -10,7 +10,7 @@ import com.mctresdoisdois.acopalipse.view.entities.ItemView;
 public class GasMeteorView extends ItemView{
 	
 	public GasMeteorView(Acopalipse game, EntityView entityView) {
-		super(game, entityView, "Meteoro Gas", 100, 10);
+		super(game, entityView);
 		// TODO Auto-generated constructor stub
 	}
 

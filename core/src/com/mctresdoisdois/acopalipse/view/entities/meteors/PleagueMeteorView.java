@@ -10,7 +10,7 @@ import com.mctresdoisdois.acopalipse.view.entities.ItemView;
 public class PleagueMeteorView extends ItemView{
 	
 	public PleagueMeteorView(Acopalipse game, EntityView entityView) {
-		super(game, entityView, "Meteoro Praga", 100, 10);
+		super(game, entityView);
 		// TODO Auto-generated constructor stub
 	}
 

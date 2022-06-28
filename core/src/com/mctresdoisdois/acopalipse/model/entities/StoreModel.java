@@ -14,7 +14,7 @@ public class StoreModel extends EntityModel {
 		itemModelArray.add(new MeteorModel(model, this, x, y+(64*0),64, 192,0));
 		itemModelArray.add(new IceMeteorModel(model, this, x, y+(64*1),64, 192,0));
 		itemModelArray.add(new GasMeteorModel(model, this, x, y+(64*2),64, 192,0));
-		itemModelArray.add(new PleagueMeteorModel(model, this, x, y+(64*3),64, 192,0));
+		itemModelArray.add(new FireMeteorModel(model, this, x, y+(64*3),64, 192,0));
 	}
 	
 	public void createItem(int i, ItemModel itemModel) {
@@ -24,8 +24,8 @@ public class StoreModel extends EntityModel {
 			itemModelArray.set(i, new IceMeteorModel(this.getModel(), this, this.getX(), this.getY()+(64*i),64, 192,0));
 		} else if(itemModel instanceof GasMeteorModel) {
 			itemModelArray.set(i, new GasMeteorModel(this.getModel(), this, this.getX(), this.getY()+(64*i),64, 192,0));
-		} else if(itemModel instanceof PleagueMeteorModel) {
-			itemModelArray.set(i, new PleagueMeteorModel(this.getModel(), this, this.getX(), this.getY()+(64*i),64, 192,0));
+		} else if(itemModel instanceof FireMeteorModel) {
+			itemModelArray.set(i, new FireMeteorModel(this.getModel(), this, this.getX(), this.getY()+(64*i),64, 192,0));
 		}
 	}
 	

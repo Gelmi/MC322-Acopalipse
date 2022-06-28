@@ -8,19 +8,19 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 import com.mctresdoisdois.acopalipse.model.entities.EntityModel;
 import com.mctresdoisdois.acopalipse.model.entities.ItemModel;
 
-public class GasMeteorModel extends ItemModel{
+public class FireMeteorModel extends ItemModel{
 
-	public GasMeteorModel(GameModel model, EntityModel entityModel, float x, float y, float height, float width,
+	public FireMeteorModel(GameModel model, EntityModel entityModel, float x, float y, float height, float width,
 			float rotation) {
-		super(model, entityModel, x, y, height, width, rotation, 1, 100, 10, "Meteoro Gas");
+		super(model, entityModel, x, y, height, width, rotation, 1, 100, 10, "Meteoro Fogo");
 		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public Sprite createSprite() {
-		Texture idleTexture = new Texture(Gdx.files.internal("MeteoroGas.png"));
+		Texture idleTexture = new Texture(Gdx.files.internal("MeteoroFogo.png"));
 		Sprite sprite = new Sprite(idleTexture);
 		return sprite;
 	}
-	
+
 }

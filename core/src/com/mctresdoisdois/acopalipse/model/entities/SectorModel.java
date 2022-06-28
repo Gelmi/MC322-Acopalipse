@@ -22,6 +22,10 @@ public class SectorModel extends EntityModel{
 		this.meteor = meteor;
 	}
 	
+	public void destroyMeteor() {;
+		this.meteor = null;
+	}
+	
 	public ItemModel getMeteor() {
 		return meteor;
 	}

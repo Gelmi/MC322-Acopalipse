@@ -28,8 +28,8 @@ public class StoreView extends EntityView{
 				itemViewArray.add(new IceMeteorView(game, this));
 			} else if(itemModelArray.get(i) instanceof GasMeteorModel) {
 				itemViewArray.add(new GasMeteorView(game, this));
-			} else if(itemModelArray.get(i) instanceof PleagueMeteorModel) {
-				itemViewArray.add(new PleagueMeteorView(game, this));
+			} else if(itemModelArray.get(i) instanceof FireMeteorModel) {
+				itemViewArray.add(new FireMeteorView(game, this));
 			}
 		}
 	}
@@ -70,8 +70,8 @@ public class StoreView extends EntityView{
 				itemViewArray.add(new IceMeteorView(getGameView().getGame(), this));
 			} else if(itemModelArray.get(i) instanceof GasMeteorModel) {
 				itemViewArray.add(new GasMeteorView(getGameView().getGame(), this));
-			} else if(itemModelArray.get(i) instanceof PleagueMeteorModel) {
-				itemViewArray.add(new PleagueMeteorView(getGameView().getGame(), this));
+			} else if(itemModelArray.get(i) instanceof FireMeteorModel) {
+				itemViewArray.add(new FireMeteorView(getGameView().getGame(), this));
 			}
 		}
 	}

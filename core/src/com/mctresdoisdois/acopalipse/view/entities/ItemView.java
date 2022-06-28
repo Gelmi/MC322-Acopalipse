@@ -9,16 +9,10 @@ import com.mctresdoisdois.acopalipse.model.entities.ItemModel;
 public abstract class ItemView extends EntityView{
 
 	private EntityView entityView;
-	private String itemName;
-	private int itemPrice;
-	private int itemPower;
 	
-	public ItemView(Acopalipse game, EntityView entityView, String itemName, int itemPrice, int itemPower) {
+	public ItemView(Acopalipse game, EntityView entityView) {
 		super(game, null);
 		this.entityView = entityView;
-		this.itemName = itemName;
-		this.itemPrice = itemPrice;
-		this.itemPower = itemPower;
 	}
 
 	//@Override
@@ -37,9 +31,10 @@ public abstract class ItemView extends EntityView{
 		batch.draw(getSprite(), itemModel.getX(), itemModel.getY(), itemModel.getHeight(), itemModel.getHeight());
 		BitmapFont font = new BitmapFont();
 		font.setColor(Color.BLACK);
-		font.draw(batch, itemName, itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.9f);
-		font.draw(batch, "Custo: "+String.valueOf(itemPrice), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.7f);
-		font.draw(batch, "Poder: "+String.valueOf(itemPower), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.5f);
+		font.draw(batch, itemModel.getName(), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.9f);
+		font.draw(batch, "Custo: "+String.valueOf(itemModel.getPrice()), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.7f);
+		font.draw(batch, "Poder: "+String.valueOf(itemModel.getPower()), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.5f);
+		font.draw(batch, "Atração: "+String.valueOf(itemModel.getDustPerSecond()), itemModel.getX() + itemModel.getHeight()*1.1f, itemModel.getY()+ itemModel.getHeight()*0.3f);
 	}
 	
 	public void draw(SpriteBatch batch, int i, int j) {
