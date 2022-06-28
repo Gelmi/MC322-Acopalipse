@@ -3,7 +3,6 @@ package com.mctresdoisdois.acopalipse.model.entities.meteors;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.mctresdoisdois.acopalipse.Acopalipse;
 import com.mctresdoisdois.acopalipse.model.GameModel;
 import com.mctresdoisdois.acopalipse.model.entities.EntityModel;
 import com.mctresdoisdois.acopalipse.model.entities.ItemModel;

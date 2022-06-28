@@ -1,5 +1,8 @@
 package com.mctresdoisdois.acopalipse.model.entities;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
@@ -10,6 +13,7 @@ public class TableModel extends EntityModel{
 	
 	private Array<Array<SectorModel>> sectorModelMatrix;
 	private Vector2 selectedSector;
+	private List<List<String>> config;
 	
 	public TableModel(GameModel model, float x, float y, float height, float width, float rotation) {
 		super(model, x, y, height, width, rotation);
@@ -22,6 +26,10 @@ public class TableModel extends EntityModel{
 				sectorModelMatrix.get(i).add(new SectorModel(this, 64*(i+1), 64*(j+1), 64, 64, 0)); 
 			}
 		}
+		
+		config = Arrays.asList(Arrays.asList("","poder","atracao","curto"),Arrays.asList("terra","10000","",""),
+				Arrays.asList("meteroro","5","5","50"), Arrays.asList("fogo","50","50","500"), Arrays.asList("gelo","50","50","500"),
+				Arrays.asList("gas","5","50","10000"));
 	}
 	
 	public Array<Array<SectorModel>> getSectorModelMatrix() {
@@ -125,5 +133,10 @@ public class TableModel extends EntityModel{
 				sectorModelMatrix.get(i).get(j).destroyMeteor();
 			}
 		}
+	}
+	
+	public void setConfig(List<List<String>> config) {
+		this.config = config;
+		getModel().getStoreModel().setConfig(config);
 	}
 }

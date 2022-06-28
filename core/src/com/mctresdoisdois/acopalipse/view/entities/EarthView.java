@@ -13,10 +13,10 @@ import com.mctresdoisdois.acopalipse.view.GameView;
 
 public class EarthView extends EntityView {
 
-	Sprite earthSprite;
-	Sprite lifeRedSprite;
-	Sprite lifeGreenSprite;
-	BitmapFont font; 
+	private Sprite earthSprite;
+	private Sprite lifeRedSprite;
+	private Sprite lifeGreenSprite;
+	private BitmapFont font; 
 	
 	public EarthView(Acopalipse game, GameView gameView) {
 		super(game, gameView);
@@ -53,9 +53,9 @@ public class EarthView extends EntityView {
 		EarthModel earthModel = getGameView().getGameModel().getEarthModel();
 		batch.draw(getSprite(), earthModel.getX(), earthModel.getY(), earthModel.getHeight(), earthModel.getWidth()-128);
 		batch.draw(lifeRedSprite, earthModel.getX(), earthModel.getY(), earthModel.getHeight(), (earthModel.getWidth()-128)/3);
-		batch.draw(lifeGreenSprite, earthModel.getX(), earthModel.getY(), earthModel.getHeight()*(earthModel.getLife()/100f), (earthModel.getWidth()-128)/3);
+		batch.draw(lifeGreenSprite, earthModel.getX(), earthModel.getY(), earthModel.getHeight()*(earthModel.getLife()/(float)earthModel.getTotalLife()), (earthModel.getWidth()-128)/3);
 		font.draw(batch, "ATAQUE!", earthModel.getX()+21, earthModel.getY()+60);
-		font.draw(batch, String.valueOf(earthModel.getLife()), earthModel.getX()+21, earthModel.getY()+40);
+		font.draw(batch, "HP: "+String.valueOf(earthModel.getLife()), earthModel.getX()+21, earthModel.getY()+40);
 		batch.draw(earthSprite, earthModel.getX(), earthModel.getY()+64, earthModel.getHeight(), earthModel.getWidth()-64);
 	}
 }

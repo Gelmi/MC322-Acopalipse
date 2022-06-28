@@ -8,15 +8,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.mctresdoisdois.acopalipse.Acopalipse;
-import com.mctresdoisdois.acopalipse.model.entities.InfoModel;
 import com.mctresdoisdois.acopalipse.model.entities.ItemModel;
 import com.mctresdoisdois.acopalipse.model.entities.UpgradeModel;
 import com.mctresdoisdois.acopalipse.view.GameView;
 
 public class UpgradeView extends EntityView {
 
-	BitmapFont font;
-	Sprite blackSprite;
+	private BitmapFont font;
+	private Sprite blackSprite;
 	
 	public UpgradeView(Acopalipse game, GameView gameView) {
 		super(game, gameView);

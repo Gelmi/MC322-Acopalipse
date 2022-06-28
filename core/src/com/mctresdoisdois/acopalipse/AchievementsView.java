@@ -14,8 +14,8 @@ public class AchievementsView implements Screen {
 	private Acopalipse game;
 	private AchievementsModel model;
 	private AchievementsController controller;
-	OrthographicCamera camera;
-	Texture arrowImage;
+	private OrthographicCamera camera;
+	private Texture arrowImage;
 	
 	public AchievementsView(Acopalipse game, AchievementsModel model, AchievementsController controller){
 		this.game = game;

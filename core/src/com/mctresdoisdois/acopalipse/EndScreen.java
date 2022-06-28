@@ -7,15 +7,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.mctresdoisdois.acopalipse.controller.GameController;
+import com.mctresdoisdois.acopalipse.controller.EndScreenController;
 import com.mctresdoisdois.acopalipse.controller.MainMenuController;
 import com.mctresdoisdois.acopalipse.model.GameModel;
-import com.mctresdoisdois.acopalipse.view.GameView;
 import com.mctresdoisdois.acopalipse.view.MyInputProcessor;
 
 public class EndScreen implements Screen {
-	final Acopalipse game;
-	OrthographicCamera camera;
+	private final Acopalipse game;
+	private OrthographicCamera camera;
+	private Texture arrowImage;
 
 	public EndScreen(final Acopalipse game) {
 		this.game = game;
@@ -23,11 +23,13 @@ public class EndScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 		
+		arrowImage = new Texture(Gdx.files.internal("backArrow.png"));
+		
 	}
 	
 	@Override
 	public void render(float delta) {
-		MyInputProcessor inputProcessor = new MyInputProcessor(new MainMenuController(game, new GameModel()));
+		MyInputProcessor inputProcessor = new MyInputProcessor(new EndScreenController(game, new GameModel()));
 		Gdx.input.setInputProcessor(inputProcessor);
 		
 		ScreenUtils.clear(0, 0, 0.2f, 1);
@@ -51,19 +53,9 @@ public class EndScreen implements Screen {
 		
 		game.getFont().draw(game.getBatch(), layout, fontX, fontY);
 		game.getBatch().draw(dinossaurImage, dinossaur.x, dinossaur.y, dinossaur.width, dinossaur.height);
+		game.getBatch().draw(arrowImage, 800-64, 0, 64, 64);
 		
 		game.getBatch().end();
-			
-		if (Gdx.input.isTouched()) {
-			//startGame(game);
-			dispose();
-		}
-	}
-
-	private void startGame(Acopalipse game) {
-		GameModel model = new GameModel();
-		
-		game.setScreen(new GameView(game, model, new GameController(game, model)));
 	}
 	
 	@Override

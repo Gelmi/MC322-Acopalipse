@@ -8,7 +8,7 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 
 public class EndScreenController extends GameController{
 	
-	public EndScreenController(Acopalipse game, GameModel gameModel, AchievementsModel AchievementsModel) {
+	public EndScreenController(Acopalipse game, GameModel gameModel) {
 		super(game, gameModel);
 	}
 	

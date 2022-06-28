@@ -5,10 +5,12 @@ import com.mctresdoisdois.acopalipse.model.GameModel;
 public class EarthModel extends EntityModel{
 
 	private int life;
+	private int totalLife;
 	
 	public EarthModel(GameModel model, float x, float y, float height, float width, float rotation) {
 		super(model, x, y, height, width, rotation);
-		life = 10000;
+		totalLife = 100;
+		life = 100;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -26,6 +28,10 @@ public class EarthModel extends EntityModel{
 	
 	public int getLife() {
 		return life;
+	}
+	
+	public int getTotalLife() {
+		return totalLife;
 	}
 
 }

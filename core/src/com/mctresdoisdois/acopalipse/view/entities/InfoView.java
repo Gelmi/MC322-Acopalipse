@@ -13,7 +13,7 @@ import com.mctresdoisdois.acopalipse.view.GameView;
 
 public class InfoView extends EntityView{
 
-	BitmapFont font;
+	private BitmapFont font;
 	
 	public InfoView(Acopalipse game, GameView gameView) {
 		super(game, gameView);

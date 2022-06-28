@@ -7,17 +7,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.mctresdoisdois.acopalipse.controller.AchievementsController;
-import com.mctresdoisdois.acopalipse.controller.GameController;
 import com.mctresdoisdois.acopalipse.controller.MainMenuController;
-import com.mctresdoisdois.acopalipse.model.AchievementsModel;
 import com.mctresdoisdois.acopalipse.model.GameModel;
-import com.mctresdoisdois.acopalipse.view.GameView;
 import com.mctresdoisdois.acopalipse.view.MyInputProcessor;
 
 public class MainMenuScreen implements Screen {
-	final Acopalipse game;
-	OrthographicCamera camera;
+	private final Acopalipse game;
+	private OrthographicCamera camera;
 
 	public MainMenuScreen(final Acopalipse game) {
 		this.game = game;
