@@ -39,3 +39,38 @@ Quanto ao jogo em si, algumas melhorias, ajustes e adições surgiram em nossa m
 * Melhorar a estética do jogo reformulando os Sprites, adicionar efeitos sonoros, trilha sonora, efeitos visuais de ataque, compra, ambientação, etc...
 
 # Destaques de Código
+~~~java
+public int getDustPerSecond() { // Calculo
+  int dps = 0;
+  for(int i = 0; i < 4; i++){
+    for(int j = 0; j < 4; j++){
+      ItemModel sectorModelItem = sectorModelMatrix.get(i).get(j).getMeteor();
+      if(sectorModelItem != null){
+        dps += sectorModelItem.getDustPerSecond();
+      }
+    }
+  }
+}
+~~~
+
+# Diagramas
+
+## Diagrama Geral da Arquitetura do Jogo
+
+Inicialmente pensamos em utilizar o padrão de projeto MVC de uma forma mais elegante, onde exista um MVC Geral que interage com vários MVCs de Entidades do jogo.
+
+![Diagrama 1](assets/diag1.png)
+
+Portanto, temos um Model para o jogo que interage com o Model das entidades e essa estratégia se repete para o View e Controller, como podemos notar no diagrama abaixo.
+
+![Diagrama 2](assets/diag2.png)
+
+Logo, o diagrama geral da arquitetura do jogo seria algo do tipo abaixo, omitimos algumas entidades porque seria mais atordoante do que esclarecedor.
+
+![Diagrama 3](assets/diag3.png)
+
+Também devemos lembrar que algumas entidades possuem outras entidades, como o tabuleiro, que possui seções que, por sua vez, podem ou não possuir itens.
+
+![Diagrama 4](assets/diag4.png)
+
+
