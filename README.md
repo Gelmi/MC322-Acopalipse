@@ -20,5 +20,22 @@
 [Link Google Slides](https://docs.google.com/presentation/d/1eoqNMRqX1qusBBDiKXzgcXkaNhuttGBCMEIitjlsO7k/edit?usp=sharing)
 
 ## Relatório de evolução
+### Evolução do Design do projeto
+O Design visual do projeto não passou por muitas mudanças. Esperávamos dar um retoque estético para a versão final, mas ocorreu que o tempo não fora suficiente para este objetivo ser cumprido. Entretanto, algumas alterações ocorreram, como pode-se perceber na foto abaixo.
+
+![Diferença visual](assets/diferenca-visual.png)
+
+Quanto ao Design geral, não houveram mudanças dignas de serem mencionadas exceto a falta do livro de conquistas, que era para ser incluido na versão final, mas não fora por má gestão do tempo, isto é, foi algo que exigiu tempo em excesso e não fomos capazes de atribuir essa funcionalidade em nosso projeto.
+
+### Dificuldades enfrentadas
+Enfrentamos algumas dificuldades com a biblioteca LibGDX para entender categoricamente suas classes, métodos e relações entre objetos, com vazamentos de memória por conta de instanciamento indevido de objetos e, principalmente, com a gestão do projeto, em relação ao manejo do tempo e distribuição de tarefas entre os participantes.
+
+### Melhorias e lições aprendidas
+Quanto ao jogo em si, algumas melhorias, ajustes e adições surgiram em nossa mente, sendo algumas delas:
+* Adição de upgrades globais (aumentar o tamanho do tabuleiro, incluir upgrades que afetam meteoros de um modo mais geral...)
+* Mecânica de New Game+, isto é, quando o jogador conseguir destruir a Terra, o jogo "reinicia", porém, mais difícil e o jogador recebe alguns benefícios por isso, sem que o jogo acabe de uma vez.
+* Adicionar funcionalidades para a Terra além de ser destruída, ou seja, que ela contra-ataque, se regenere com o tempo, tenha estações do ano definidas e que estas interajam com os meteoros.
+* Adicionar novas interações entre os meteoros, como o meteoro de fogo dar dano contínuo na Terra, etc...
+* Melhorar a estética do jogo reformulando os Sprites, adicionar efeitos sonoros, trilha sonora, efeitos visuais de ataque, compra, ambientação, etc...
 
 # Destaques de Código
