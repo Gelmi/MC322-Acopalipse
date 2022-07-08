@@ -226,7 +226,7 @@ public class StoreController extends EntityController {
     }
 }
 ~~~
-O controller do tabuleiro apenas faz o contato com o model do tabuleiro e repassa o ponteiro recebido, e então o model do tabuleiro efetua a rotina de compra:
+O _controller_ do tabuleiro apenas faz o contato com o _model_ do tabuleiro e repassa o ponteiro recebido, e então o _model_ do tabuleiro efetua a rotina de compra:
 ~~~java
 public class TableModel extends EntityModel{
     ...
@@ -271,28 +271,34 @@ public abstract class ItemView extends EntityView{
 }
 ~~~
 
-## Diagrama de Classes usada no destaque OO:
+## Diagrama de Classes
+
+Abaixo seguem diagramas de classes utilizados no projeto supramencionados e que já foram detalhados.
+
+![Diagrama 5](assets/diag5.png)
+
+![Diagrama 6](assets/diag6.png)
 
 # Destaques de Pattern
 
-O coração da arquitetura do nosso projeto é a utilização do padrão de projeto Model-View-Controller de forma bem rigorosa onde teremos, para cada objeto(não no sentido de orientação a objetos) mostrado na tela, 3 classes - uma para cada papel do pattern - que terão suas funções bem delimitadas e se relacionarão de forma específica.
+O coração da arquitetura do nosso projeto é a utilização do padrão de projeto _Model-View-Controller_ de forma bem rigorosa onde teremos, para cada objeto (não no sentido de orientação a objetos) mostrado na tela, 3 classes - uma para cada papel do _pattern_ - que terão suas funções bem delimitadas e se relacionarão de forma específica.
 
 Ao adotarmos esse formato, podemos explorar ao máximo os recursos da nossa biblioteca gráfica por exemplo gerando views especificas para Android e reusando código de forma inteligente.
 
-Assim, existem classes MVC do jogo, que são as principais instâncias. Elas são responsáveis por instanciar cada uma das classes MVC respectivas das entidades e também intermediam as relações entre essas entidades.
+Assim, existem classes _MVC_ do jogo, que são as principais instâncias. Elas são responsáveis por instanciar cada uma das classes _MVC_ respectivas das entidades e também intermediam as relações entre essas entidades.
 
-Basicamente a View Jogo é a nossa tela principal e ela é quem recebe os inputs do usuário. Assim, ela os repassa para o input processor (classe da bilbioteca gráfica que lida com os inputs evitando multiplos cliques e imprecisões) que conversa com o Controller Jogo. 
+Basicamente a _View Jogo_ é a nossa tela principal e ela é quem recebe os _inputs_ do usuário. Assim, ela os repassa para o _input processor_ (classe da biblioteca gráfica que lida com os _inputs_ evitando multiplos cliques e imprecisões) que conversa com o _Controller Jogo_. 
 
-O controller jogo distribui o input para cada controller de entidade que é responsavel por sua região na tela, assim como, por alterar o seu respectivo model de acordo com o clique. Como a função render é executada aproximadamente 60 vezes por segundo, por mais que ele se desenhe a cada chamada, seria ineficiente atualizarmos o view inteiro pois ele não é atualizado nessa velocidade. Então, o controller também tem a função de avisar ao view para que ele se atualize.
+O _controller jogo_ distribui o _input_ para cada _controller de entidade_ que é responsavel por sua região na tela, assim como, por alterar o seu respectivo _model_ de acordo com o clique. Como a função _render_ é executada aproximadamente 60 vezes por segundo, por mais que ele se desenhe a cada chamada, seria ineficiente atualizarmos o _view_ inteiro pois ele não é atualizado nessa velocidade. Então, o _controller_ também tem a função de avisar ao _view_ para que ele se atualize.
 
-O view jogo então é avisado pelo controller e não só se atualiza como pede para que todas as suas instâncias de view entidade também se atualizem. A atualizção é uma consulta ao seu respectivo model perguntando sobre seu novo estado de relacionamento das classes, então de acordo com ele o view replica esse mesmo relacionamento.
+O _view jogo_ então é avisado pelo _controller_ e não só se atualiza como pede para que todas as suas instâncias de _view entidade_ também se atualizem. A atualizção é uma consulta ao seu respectivo _model_ perguntando sobre seu novo estado de relacionamento das classes, então, de acordo com ele, o _view_ replica esse mesmo relacionamento.
 
-Também durante a atividade a respeito de padrões de projeto planejamos utilizar os patterns Observer e Factory, porém acabamos não os implementando de forma completa por falta de organização.
+Também durante a atividade a respeito de padrões de projeto planejamos utilizar os _patterns_ _Observer_ e _Factory_, porém acabamos não os implementando de forma completa por falta de organização.
 
-O sistema de atualização da quantidade de poeira atraida por segundo funciona de forma análoga a um observer. Cada SectorModel está "observando" a classe TableModel(a matriz de observadores contém cada um dos SectorModel). Assim, a cada segundo, o tabuleiro percorre a matriz perguntando pra cada setor qual é a poeira por segundo que ele atrai.
+O sistema de atualização da quantidade de poeira atraída por segundo funciona de forma análoga a um _observer_. Cada _SectorModel_ está "observando" a classe _TableModel_ (a matriz de observadores contém cada um dos _SectorModel_). Assim, a cada segundo, o tabuleiro percorre a matriz perguntando pra cada setor qual é a poeira por segundo que ele atrai.
 
 ~~~java
-public int getDustPerSecond() { // Calculo
+public int getDustPerSecond() {
   int dps = 0;
   for(int i = 0; i < 4; i++){
     for(int j = 0; j < 4; j++){
@@ -305,7 +311,7 @@ public int getDustPerSecond() { // Calculo
 }
 ~~~
 
-O pattern Factory seria explorado para instanciar os diversos tipos de meteoros e, além disso, fazer com que cada um deles tivesse um impacto diferente na terra no momento de sua criaçao (por exemplo dano causado por segundo).
+O pattern _Factory_ seria explorado para instanciar os diversos tipos de meteoros e, além disso, fazer com que cada um deles tivesse um impacto diferente na Terra no momento de sua criação (por exemplo: dano contínuo).
 
 ## Diagrama do Pattern
 
