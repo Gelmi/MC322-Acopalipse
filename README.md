@@ -57,7 +57,7 @@ Aprendemos também a utilizar o _Design Thinking_ antes de começar a programar,
 
 Atacamos o padrão _MVC_ de forma com que cada "tipo" de objeto possua 3 classes diferentes (uma model, uma view e outra controller), o motivo dessa decisão será explicada nos destaques de padrões de projeto. Assim, sempre que nos referirmos a "classes _MVC_" ou "objetos _MVC_" quer dizer que estamos nos referindo ao conjunto das 3 classes ou objetos, e esse comportamento se replica para o _model_, _view_ e _controller_ do "tipo" de objeto. Tomamos essa denominação para evitarmos que o texto fique prolixo.
 
-Devido a biblioteca gráfica que utilizamos, cada objeto que renderizamos na tela requer alguns atributos e metodos comuns. Portanto, utilizamos a herança abstrata de forma extensiva para a classes _MVC_ dessas "entidades" queremos renderizar na tela. Assim podemos construir classes que respeitam o encapsulamento e deixam a responsabilidade das funcionalidades específicas para seus herdeiros. No final dessa seção há uma subseção com dos diagramas que detalham as heranças.
+Devido a biblioteca gráfica que utilizamos, cada objeto que renderizamos na tela requer alguns atributos e metodos comuns. Portanto, utilizamos a herança abstrata de forma extensiva para a classes _MVC_ dessas "entidades" que queremos renderizar na tela. Assim, podemos construir classes que respeitam o encapsulamento e deixam a responsabilidade das funcionalidades específicas para seus herdeiros. No final dessa seção há uma subseção com os diagramas que detalham as heranças.
 
 ~~~java
 ...
@@ -281,11 +281,11 @@ Abaixo seguem diagramas de classes utilizados no projeto supramencionados e que 
 
 # Destaques de Pattern
 
-O coração da arquitetura do nosso projeto é a utilização do padrão de projeto _Model-View-Controller_ de forma bem rigorosa onde teremos, para cada objeto (não no sentido de orientação a objetos) mostrado na tela, 3 classes - uma para cada papel do _pattern_ - que terão suas funções bem delimitadas e se relacionarão de forma específica.
+O coração da arquitetura do nosso projeto é a utilização do padrão de projeto _Model-View-Controller_ de forma bem rigorosa onde teremos, para cada objeto (não no sentido de orientação a objetos) mostrado na tela, 3 classes - uma para cada papel do _pattern_ - que terão suas funções bem delimitadas e se relacionarão de forma bem específica.
 
-Ao adotarmos esse formato, podemos explorar ao máximo os recursos da nossa biblioteca gráfica por exemplo gerando views especificas para Android e reusando código de forma inteligente.
+Ao adotarmos esse formato, podemos explorar ao máximo os recursos da nossa biblioteca gráfica por exemplo gerando views especificas para Android e reusando código de forma inteligente. Esse compromisso com a arquitetura torna o processo de construção de novos objetos algo mais tedioso, visto que, é nessesário muitas vezes que criemos 3 classes diferentes que não se relacionam de forma direta. Porém, essa decisão nos retorna um código com alta coesão e um bom acoplamento.
 
-Assim, existem classes _MVC_ do jogo, que são as principais instâncias. Elas são responsáveis por instanciar cada uma das classes _MVC_ respectivas das entidades e também intermediam as relações entre essas entidades.
+Assim, existem classes _MVC_ do jogo, que são as principais instâncias. Elas são responsáveis por instanciar cada uma das classes _MVC_ respectivas das entidades e também intermediam as relações entre essas entidades. Vemos que cada Model-View-Controller do jogo é a raiz de sua arvore MVC, e suas folhas devem se relacionar exatamente da mesma forma para cada um delas. A unica comunicação entre os componentes de arvores diferentes se dá pela raiz, onde os Model-View-Controller do jogo tem ponteiros de seus complementares. Assim, cada entidade tem apenas uma referência do seu "pai" e de seus "filhos" mas mesmo assim pode acessar quase todas as classes do jogo.
 
 Basicamente a _View Jogo_ é a nossa tela principal e ela é quem recebe os _inputs_ do usuário. Assim, ela os repassa para o _input processor_ (classe da biblioteca gráfica que lida com os _inputs_ evitando multiplos cliques e imprecisões) que conversa com o _Controller Jogo_. 
 
