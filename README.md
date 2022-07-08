@@ -308,6 +308,8 @@ public int getDustPerSecond() { // Calculo
 O pattern Factory seria explorado para instanciar os diversos tipos de meteoros e, além disso, fazer com que cada um deles tivesse um impacto diferente na terra no momento de sua criaçao (por exemplo dano causado por segundo).
 
 ## Diagrama do Pattern
+
+![Diagrama 3](assets/diag3.png)
  
 # Diagramas
 
